@@ -1,0 +1,25 @@
+This is a simple implementation of a ticktacktoe variation I saw on Tiktok by @bluefostermusic.
+
+The board looks like this:
+ooo | ooo | ooo    00 | 01 | 02 
+---------------    -------------
+ooo | ooo | ooo    10 | 11 | 12
+---------------    -------------
+ooo | ooo | ooo    20 | 21 | 22
+
+Dots will be represented by d followed by the number dot that they are from left to right beginning at 0
+Example the middle dot in the top middle box will be referred to as 01d1 and the first dot in the bottom right box as 22d0
+
+In order to win, you must connect any of the horizontal, vertical, or diagnoal squares to each other (just like the original game).
+
+In addition to that there are a few additional rules:
+In order to have 'ownership' of a square, you must claim the majority of the dots in that square
+In order to consider two squares to be connected, they must have a dot in them that connects to another dot in another square.
+For example: if 00 and 11 are to be connected, 00d2 and 11d0 must be filled and have at least one other filled in each of those squares.
+
+Game flow:
+Player attempts to place dot, game checks and verifies valid move, (if invalid, repeat until valid), game checks end conditions.
+This alternates between players until game end conditions have been met, either no one can win or a player has won.
+ß
+Data storage:
+Each player will placed dot information stored. If a square contains the majority of one player's dots, that square is now considered to be 'claimed' by that player and will be used to check game end conditions. Game end conditions do not need to be checked until one player has claimed at least 3 squares (TODO: will need to verify if a game can be declared a tie before that.)
